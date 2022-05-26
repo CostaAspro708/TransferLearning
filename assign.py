@@ -4,7 +4,7 @@ import scipy
 import numpy as np
 from tensorflow import keras
 from keras import layers
-from keras.optimizers import SGD
+#from keras.optimizers import SGD
 import os
 import pathlib
 from keras.applications.mobilenet_v2 import MobileNetV2
@@ -55,11 +55,12 @@ test_generator = image_generator.flow_from_directory(
     )
 
 base_learning_rate = 0.01
-base_optomizer = SGD(
+base_optomizer = keras.optimizers.SGD(
     learning_rate=base_learning_rate, momentum=0.0, nesterov=False, name="SGD"
 )
+
 model.compile(optimizer=base_optomizer,
-              loss="sparse_categorical_crossentropy",
+              loss="categorical_crossentropy",
               metrics=['accuracy'])
 
 
