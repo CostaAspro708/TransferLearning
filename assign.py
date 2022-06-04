@@ -56,7 +56,7 @@ test_generator = image_generator.flow_from_directory(
     subset="validation"
     )
 
-base_learning_rate = 0.000000001
+base_learning_rate = 0.0000013
 base_optomizer = keras.optimizers.SGD(
     learning_rate=base_learning_rate, momentum=0.0, nesterov=False, name="SGD"
 )
@@ -72,7 +72,7 @@ history = model.fit(train_generator, validation_data=test_generator, epochs=20)
 
 plt.plot(history.history['loss'], label='train')
 plt.plot(history.history['val_loss'], label='test')
-plt.title('Model loss and val_loss at 0.000000001 learning rate')
+plt.title('Model loss and val_loss at 0.0000013 learning rate')
 plt.ylabel('loss/val_loss')
 plt.xlabel('epoch')
 plt.legend()
@@ -81,7 +81,7 @@ plt.show()
 
 plt.plot(history.history['accuracy'], label='train')
 plt.plot(history.history['val_accuracy'], label='test')
-plt.title('Model accuracy and val_accuracy at 0.000000001 learning rate')
+plt.title('Model accuracy and val_accuracy at 0.0000013 learning rate')
 plt.ylabel('accuracy/val_accuracy')
 plt.xlabel('epoch')
 plt.legend()
