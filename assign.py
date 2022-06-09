@@ -207,12 +207,126 @@ def task_7_3():
     plt.suptitle('Learning rate = 0.005, Momentum = 0')
     plt.show()
 
+def task_8_1():
+    task_1_3()
+    base_learning_rate = 0.05
+    base_epochs = 20
+    base_optomizer = keras.optimizers.SGD(
+        learning_rate=base_learning_rate, momentum=0.05, nesterov=False, name="SGD"
+    )
+
+    model.compile(optimizer=base_optomizer,
+                  loss="categorical_crossentropy",
+                  metrics=['accuracy'])
+
+    history = model.fit(train_generator, validation_data=test_generator, epochs=base_epochs)
+
+    acc = history.history['accuracy']
+    val_acc = history.history['val_accuracy']
+
+    loss = history.history['loss']
+    val_loss = history.history['val_loss']
+
+    epochs_range = range(base_epochs)
+
+    plt.figure()
+    plt.subplot(1, 2, 1)
+    plt.plot(epochs_range, acc, label='Training Accuracy')
+    plt.plot(epochs_range, val_acc, label='Validation Accuracy')
+    plt.legend(loc='lower right')
+    plt.title('Training and Validation Accuracy')
+
+    plt.subplot(1, 2, 2)
+    plt.plot(epochs_range, loss, label='Training Loss')
+    plt.plot(epochs_range, val_loss, label='Validation Loss')
+    plt.legend(loc='upper right')
+    plt.title('Training and Validation Loss')
+    plt.suptitle('Learning rate = 0.05, Momentum = 0.05')
+    plt.show()
+
+def task_8_2():
+    task_1_3()
+    base_learning_rate = 0.05
+    base_epochs = 20
+    base_optomizer = keras.optimizers.SGD(
+        learning_rate=base_learning_rate, momentum=0.10, nesterov=False, name="SGD"
+    )
+
+    model.compile(optimizer=base_optomizer,
+                  loss="categorical_crossentropy",
+                  metrics=['accuracy'])
+
+    history = model.fit(train_generator, validation_data=test_generator, epochs=base_epochs)
+
+    acc = history.history['accuracy']
+    val_acc = history.history['val_accuracy']
+
+    loss = history.history['loss']
+    val_loss = history.history['val_loss']
+
+    epochs_range = range(base_epochs)
+
+    plt.figure()
+    plt.subplot(1, 2, 1)
+    plt.plot(epochs_range, acc, label='Training Accuracy')
+    plt.plot(epochs_range, val_acc, label='Validation Accuracy')
+    plt.legend(loc='lower right')
+    plt.title('Training and Validation Accuracy')
+
+    plt.subplot(1, 2, 2)
+    plt.plot(epochs_range, loss, label='Training Loss')
+    plt.plot(epochs_range, val_loss, label='Validation Loss')
+    plt.legend(loc='upper right')
+    plt.title('Training and Validation Loss')
+    plt.suptitle('Learning rate = 0.05, Momentum = 0.10 ')
+    plt.show()
+
+def task_8_3():
+    task_1_3()
+    base_learning_rate = 0.05
+    base_epochs = 20
+    base_optomizer = keras.optimizers.SGD(
+        learning_rate=base_learning_rate, momentum=0.15, nesterov=False, name="SGD"
+    )
+
+    model.compile(optimizer=base_optomizer,
+                  loss="categorical_crossentropy",
+                  metrics=['accuracy'])
+
+    history = model.fit(train_generator, validation_data=test_generator, epochs=base_epochs)
+
+    acc = history.history['accuracy']
+    val_acc = history.history['val_accuracy']
+
+    loss = history.history['loss']
+    val_loss = history.history['val_loss']
+
+    epochs_range = range(base_epochs)
+
+    plt.figure()
+    plt.subplot(1, 2, 1)
+    plt.plot(epochs_range, acc, label='Training Accuracy')
+    plt.plot(epochs_range, val_acc, label='Validation Accuracy')
+    plt.legend(loc='lower right')
+    plt.title('Training and Validation Accuracy')
+
+    plt.subplot(1, 2, 2)
+    plt.plot(epochs_range, loss, label='Training Loss')
+    plt.plot(epochs_range, val_loss, label='Validation Loss')
+    plt.legend(loc='upper right')
+    plt.title('Training and Validation Loss')
+    plt.suptitle('Learning rate = 0.05, Momentum = 0.15 ')
+    plt.show()
+
+
 if __name__ == "__main__":
     task_1_3()
     task_4()
     #task_5_and_6()
-    task_7_1()
+    #task_7_1()
     #task_7_2()
     #task_7_3()
+    #task_8_1()
+    #task_8_2()
+    task_8_3()
     
-
